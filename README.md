@@ -1,5 +1,12 @@
 ## black-primer
 
+> NOTICE: **This repository exists as a historical record, active development is not
+> planned.**
+>
+> `black-primer` is an obsolete tool (now replaced with [diff-shades]) that was used to
+> gauge the impact of changes in _Black_ on open-source code. It is no longer used
+> internally and was moved into its own repository in March 2022.
+
 `black-primer` is a tool built for CI (and humans) to have _Black_ `--check` a number of
 Git accessible projects in parallel. (configured in `primer.json`) _(A PR will be
 accepted to add Mercurial support.)_
@@ -59,13 +66,5 @@ Options:
   -W, --workers INTEGER  Number of parallel worker coroutines  [default: 2]
   -h, --help             Show this message and exit.
 ```
-
-## Acknowledgements
-
-`black-primer` is an obsolete tool (now replaced with [diff-shades]) that was used to
-gauge the impact of changes in _Black_ on open-source code. It is no longer used
-internally and was moved into its own repository in March 2022.
-
-This archive exists as a historical record, active development is not planned.
 
 [diff-shades]: https://github.com/ichard26/diff-shades

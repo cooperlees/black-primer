@@ -39,7 +39,7 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ichard26/black-primer"
+Homepage = "https://github.com/cooperlees/black-primer"
 
 [project.scripts]
 black-primer = "black_primer.cli:main"
