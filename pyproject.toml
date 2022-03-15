@@ -1,0 +1,79 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "black-primer"
+readme = "README.md"
+requires-python = ">=3.6.2"
+license = {file = "LICENSE.txt"}
+authors = [
+    {name = "Richard Si", email = "63936253+ichard26@users.noreply.github.com"},
+    {name = "Cooper Lees", email = "me@cooperlees.com"}
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed",
+]
+
+dependencies = ["click>7.1.2"]
+
+dynamic = ["version", "description"]
+
+[project.optional-dependencies]
+uvloop = ["uvloop>=0.15.2"]
+test = [
+    "coverage>=5.3",
+    "pytest >= 6.1.1",
+    "pytest-cov >= 2.11.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/ichard26/black-primer"
+
+[project.scripts]
+black-primer = "black_primer.cli:main"
+
+[tool.flit.module]
+name = "black_primer"
+
+[tool.black]
+target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
+# We use preview style for formatting black-primer itself. If you
+# want stable formatting across releases, you should keep
+# this off.
+preview = true
+
+[tool.isort]
+profile = "black"
+line_length = 88
+skip_gitignore = true
+py_version = "36"
+known_third_party = ["click", "nox"]
+known_first_party = ["black_primer"]
+
+[tool.coverage.run]
+source = ["black_primer", "tests"]
+relative_files = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    '@(?:abc\.)?abstract(?:method|property|classmethod|staticmethod)',
+    '@(?:typing\.)?overload',
+    '\.\.\.',
+    "if TYPE_CHECKING"
+]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config"
